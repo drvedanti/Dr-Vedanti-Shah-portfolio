@@ -403,3 +403,37 @@ footer {
     flex-direction: column;
   }
 }
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  margin-top: 55px;
+}
+
+.screenshot-grid figure {
+  margin: 0;
+}
+
+.screenshot-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+}
+
+.screenshot-grid figcaption {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
