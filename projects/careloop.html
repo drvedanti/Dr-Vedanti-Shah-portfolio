@@ -175,7 +175,30 @@
     .unvalidated > p:not(.section-label) {
       color: #bdbdb5;
     }
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 55px;
+}
 
+.screenshot-grid figure {
+  margin: 0;
+}
+
+.screenshot-grid img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.screenshot-grid figcaption {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+    
     .case-links {
       display: flex;
       gap: 25px;
@@ -183,7 +206,10 @@
       margin-top: 45px;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 760px) {.screenshot-grid {
+  grid-template-columns: 1fr;
+  gap: 30px;
+    }
       .case-hero,
       .case-section {
         padding-left: 20px;
@@ -598,7 +624,7 @@ Shared journey
 
 <section class="case-section">
 
-  <p class="section-label">09 · The product in use</p>
+  <p class="section-label">11 · The product in use</p>
 
   <h2>From information to a shared care journey.</h2>
 
@@ -620,7 +646,7 @@ Shared journey
     </figure>
 
     <figure>
-      <img src="../Careloop4.jpg" alt="CareLoop review screen">
+<img src="../CareLoop4.jpg" alt="CareLoop review screen">
       <figcaption>Reviewing what CareLoop understood.</figcaption>
     </figure>
 
@@ -648,8 +674,8 @@ Shared journey
 
 </section>
 
-  
-  <p class="section-label">11 · The next question</p>
+   <section class="case-section">
+  <p class="section-label">12 · The next question</p>
 
   <h2>
     Can a shared, stateful care journey make family coordination easier
