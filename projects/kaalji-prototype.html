@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KAALJI — Care Capacity Decision Support</title>
+<meta name="description" content="KAALJI is a proposed decision-support prototype for teams planning elder-care workforce and services in India." />
+<style>
+:root{
+  --ink:#18211f;
+  --muted:#66706c;
+  --paper:#f5f2ea;
+  --card:#ffffff;
+  --line:#ded9ce;
+  --deep:#153c34;
+  --deep2:#245347;
+  --accent:#c67d37;
+  --accent-soft:#f8eadb;
+  --green:#2f7659;
+  --green-soft:#edf6f1;
+  --amber:#936a1d;
+  --amber-soft:#fbf4df;
+  --red:#a34b40;
+  --red-soft:#fbefed;
+  --violet:#74578c;
+  --violet-soft:#f3eef7;
+  --shadow:0 18px 50px rgba(25,36,33,.08);
+  --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+a{color:inherit}
+button,select{font:inherit}
+button{cursor:pointer}
+.shell{max-width:1180px;margin:0 auto;padding:0 24px 72px}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(245,242,234,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(222,217,206,.9)}
+.topbar-inner{max-width:1180px;margin:auto;padding:13px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}.mark{width:34px;height:34px;border-radius:11px;background:var(--deep);color:white;display:grid;place-items:center;font-weight:850}.brand-copy b{display:block;font-size:13px;letter-spacing:.12em}.brand-copy span{display:block;font-size:11px;color:var(--muted)}
+.status{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:7px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.hero{padding:68px 0 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:end}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:850;color:var(--deep2)}
+h1{font-size:clamp(42px,6vw,70px);line-height:.98;letter-spacing:-.047em;margin:11px 0 20px;max-width:820px}.lead{font-size:19px;color:#414b47;max-width:760px;margin:0}.hero-note{background:var(--deep);color:white;border-radius:var(--radius);padding:24px 25px;box-shadow:var(--shadow)}.hero-note small{display:block;text-transform:uppercase;letter-spacing:.12em;color:#bdd4ca;font-weight:850}.hero-note strong{display:block;font-size:22px;line-height:1.25;margin:9px 0 11px}.hero-note p{font-size:14px;color:#dbe7e2;margin:0}.chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.chip{border:1px solid #d3cec2;background:#fff;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:750;color:#424d48}
+.section-title{margin:42px 0 15px;display:flex;justify-content:space-between;gap:20px;align-items:end}.section-title h2{margin:3px 0 0;font-size:29px;letter-spacing:-.03em}.section-title p{max-width:570px;margin:0;color:var(--muted);font-size:13px}
+.decision-card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 8px 28px rgba(25,36,33,.045);display:grid;grid-template-columns:1fr 240px auto;gap:14px;align-items:end}.field label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:850;color:var(--muted);margin-bottom:8px}.field select{width:100%;border:1px solid #d6d0c5;background:#fbfaf7;padding:12px 13px;border-radius:12px;color:var(--ink)}.run{border:0;border-radius:12px;background:var(--deep);color:white;font-weight:850;padding:13px 18px;min-height:46px}.run:hover{background:var(--deep2)}
+.result{margin-top:16px;background:white;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 28px rgba(25,36,33,.045)}
+.result-head{padding:24px 26px 20px;display:flex;justify-content:space-between;gap:18px;align-items:flex-start;border-bottom:1px solid var(--line)}.result-head h3{font-size:28px;letter-spacing:-.03em;margin:4px 0 6px}.result-head p{margin:0;color:var(--muted);font-size:13px;max-width:770px}.recommendation{border:1px solid #e5bd98;background:#fff5eb;color:#7e4b1e;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:900;white-space:nowrap}
+.answer{padding:24px 26px 4px}.answer-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}.answer-main{background:#fbf7f1;border-left:4px solid var(--accent);border-radius:0 15px 15px 0;padding:19px 20px}.answer-main small,.next-box small,.change-box small{display:block;text-transform:uppercase;letter-spacing:.11em;font-weight:850;color:var(--muted);margin-bottom:6px}.answer-main strong{font-size:22px;line-height:1.25;display:block;color:var(--deep)}.answer-main p{font-size:14px;color:#4c5752;margin:9px 0 0}.decision-meaning{background:var(--green-soft);border:1px solid #cfe5d9;border-radius:15px;padding:18px}.decision-meaning small{display:block;text-transform:uppercase;letter-spacing:.11em;font-weight:850;color:#547064;margin-bottom:7px}.decision-meaning p{font-size:14px;margin:0;color:#2f4b40}
+.pipeline-wrap{padding:24px 26px 6px}.pipeline-title{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:15px}.pipeline-title h4{margin:0;font-size:19px}.pipeline-title p{margin:0;color:var(--muted);font-size:12px;max-width:520px}.pipeline{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.stage{position:relative;border:1px solid var(--line);border-radius:14px;padding:14px 12px;min-height:145px;background:#fff}.stage:after{content:'→';position:absolute;right:-13px;top:52px;color:#a59f93;font-weight:900;z-index:2}.stage:last-child:after{display:none}.stage .num{font-size:10px;color:#8c948f;font-weight:850}.stage h5{font-size:14px;margin:6px 0 8px}.stage .state{display:inline-block;border-radius:999px;padding:5px 7px;font-size:9px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px}.stage p{margin:0;color:#5d6762;font-size:11px;line-height:1.4}.stage.known{background:var(--green-soft);border-color:#cfe5d9}.stage.known .state{background:#d9ede3;color:#27654b}.stage.partial{background:var(--amber-soft);border-color:#eadcab}.stage.partial .state{background:#f2e5b9;color:#7d5a16}.stage.unknown{background:#faf9f6;border-style:dashed}.stage.unknown .state{background:#eeeae2;color:#6e6b64}.stage.alert{background:var(--red-soft);border-color:#ebc7c1}.stage.alert .state{background:#f4d9d5;color:#8b4036}
+.three{padding:20px 26px 7px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.logic-card{border:1px solid var(--line);border-radius:15px;padding:17px;background:#fff}.logic-card h4{font-size:15px;margin:0 0 9px}.logic-card ul{margin:0;padding-left:17px;color:#505b56;font-size:12px}.logic-card li{margin:7px 0}.logic-card.know{border-top:4px solid var(--green)}.logic-card.missing{border-top:4px solid var(--red)}.logic-card.meaning{border-top:4px solid var(--accent)}
+.action-grid{padding:20px 26px 25px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.next-box,.change-box{border-radius:16px;padding:20px}.next-box{background:var(--deep);color:white}.next-box small{color:#bdd4ca}.next-box strong{display:block;font-size:20px;line-height:1.25}.next-box p{margin:8px 0 0;color:#dbe7e2;font-size:13px}.change-box{background:#f8f6f0;border:1px solid var(--line)}.change-box strong{display:block;font-size:18px;line-height:1.3}.change-box ul{margin:10px 0 0;padding-left:18px;font-size:12px;color:#4f5954}.change-box li{margin:7px 0}
+.inspect{margin-top:18px}.inspect details{background:white;border:1px solid var(--line);border-radius:15px;margin-bottom:9px;overflow:hidden}.inspect summary{padding:15px 17px;font-weight:800;font-size:13px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}.inspect summary::-webkit-details-marker{display:none}.inspect summary:after{content:'+';font-size:18px;color:var(--muted)}.inspect details[open] summary:after{content:'–'}.detail-body{border-top:1px solid var(--line);padding:16px 17px}.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.e-card{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff}.e-type{font-size:9px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.e-type.real{color:var(--green)}.e-type.gap{color:var(--red)}.e-type.derived{color:var(--amber)}.e-type.hyp{color:var(--violet)}.e-card .metric{font-size:21px;font-weight:900;margin:5px 0 3px}.e-card p{margin:0;font-size:12px;color:#4f5954}.meta{font-size:10px;color:#818985;margin-top:7px}.source{display:inline-block;margin-top:8px;font-size:10px;font-weight:800;color:var(--deep);text-decoration:none;border-bottom:1px solid #adc2ba}
+.checks{display:grid;gap:7px}.check{display:grid;grid-template-columns:19px 1fr auto;gap:9px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font-size:11px}.icon{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-weight:900}.pass .icon{background:#e2f0e8;color:var(--green)}.warn .icon{background:#f8edd0;color:var(--amber)}.fail .icon{background:#f5dfdc;color:var(--red)}.check em{font-style:normal;font-size:9px;font-weight:900;letter-spacing:.06em;color:var(--muted)}
+.method-note{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.method-note div{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fbfaf7}.method-note b{display:block;font-size:12px;margin-bottom:5px}.method-note p{margin:0;color:#5d6762;font-size:11px}
+.footer-note{margin-top:28px;padding-top:17px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;font-size:10px;color:var(--muted)}
+.hidden{display:none!important}
+@media(max-width:980px){.hero{grid-template-columns:1fr}.decision-card{grid-template-columns:1fr}.answer-grid{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(3,1fr)}.stage:nth-child(3):after{display:none}.three{grid-template-columns:1fr}.action-grid{grid-template-columns:1fr}.method-note{grid-template-columns:1fr}}
+@media(max-width:640px){.shell,.topbar-inner{padding-left:15px;padding-right:15px}.hero{padding-top:46px}.lead{font-size:17px}.pipeline{grid-template-columns:1fr}.stage:after{display:none}.result-head{flex-direction:column}.evidence-grid{grid-template-columns:1fr}.section-title{align-items:flex-start;flex-direction:column}.footer-note{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top" aria-label="KAALJI home">
+      <div class="mark">K</div>
+      <div class="brand-copy"><b>KAALJI</b><span>From care need to care delivered</span></div>
+    </a>
+    <div class="status"><span class="dot"></span> Proposed decision-support prototype</div>
+  </div>
+</header>
+
+<main id="top" class="shell">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Care-capacity decision support</div>
+      <h1>Find where care capacity breaks before choosing the intervention.</h1>
+      <p class="lead">KAALJI is a proposed tool for programme, workforce and strategy teams planning elder-care services. It helps test whether the problem is really training — or whether capacity is being lost after people are trained.</p>
+      <div class="chiprow"><span class="chip">Evidence first</span><span class="chip">Decision oriented</span><span class="chip">Proposed · not validated</span></div>
+    </div>
+    <aside class="hero-note">
+      <small>The practical question</small>
+      <strong>Before we train more caregivers, do we know that training is the bottleneck?</strong>
+      <p>If the real constraint is workforce activation, geography, availability, access or retention, more training alone may not create more care.</p>
+    </aside>
+  </section>
+
+  <div class="section-title">
+    <div><div class="eyebrow">Decision check</div><h2>Start with the decision you need to make.</h2></div>
+    <p>This portfolio demo uses a small public evidence set to demonstrate the product logic. It is not a live national workforce monitor.</p>
+  </div>
+
+  <section class="decision-card">
+    <div class="field">
+      <label for="decision">Decision</label>
+      <select id="decision">
+        <option value="train">Should we invest in more caregiver training?</option>
+        <option value="registry">Does caregiver registration prove usable workforce capacity?</option>
+        <option value="shortage">Can current public data support a national caregiver-shortage claim?</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="geo">Geography</label>
+      <select id="geo"><option>India</option></select>
+    </div>
+    <button class="run" id="run">Run decision check</button>
+  </section>
+
+  <section class="result" aria-live="polite">
+    <div class="result-head">
+      <div>
+        <div class="eyebrow">KAALJI recommendation</div>
+        <h3 id="resultTitle">Should we invest in more caregiver training?</h3>
+        <p id="resultSubtitle">The system has evidence of training activity, but not enough evidence to show that training is the main constraint.</p>
+      </div>
+      <div class="recommendation" id="recBadge">DO NOT JUMP TO TRAINING YET</div>
+    </div>
+
+    <div class="answer">
+      <div class="answer-grid">
+        <div class="answer-main">
+          <small>Current conclusion</small>
+          <strong id="answerStrong">Training may be part of the answer. The current evidence cannot show that it is the bottleneck.</strong>
+          <p id="answerText">We can see that people were trained. We cannot yet see how many became active caregivers, where they are available, or how much care they delivered.</p>
+        </div>
+        <div class="decision-meaning">
+          <small>Why this matters</small>
+          <p id="decisionMeaning">If capacity is being lost after training, expanding training first could spend resources without fixing the real constraint.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-wrap">
+      <div class="pipeline-title">
+        <h4>Where does the evidence become uncertain?</h4>
+        <p>The pathway makes the missing conversion visible. A stage can be relevant without being equivalent to the next one.</p>
+      </div>
+      <div class="pipeline" id="pipeline"></div>
+    </div>
+
+    <div class="three">
+      <article class="logic-card know"><h4>What we know</h4><ul id="knownList"></ul></article>
+      <article class="logic-card missing"><h4>What we still do not know</h4><ul id="unknownList"></ul></article>
+      <article class="logic-card meaning"><h4>What that means for the decision</h4><ul id="meaningList"></ul></article>
+    </div>
+
+    <div class="action-grid">
+      <div class="next-box">
+        <small>Next evidence to obtain</small>
+        <strong id="nextStrong">Follow the trained cohort into active work.</strong>
+        <p id="nextText">Link training records with placement or employment, active status, geography and availability before deciding whether more training is the priority.</p>
+      </div>
+      <div class="change-box">
+        <small>What would change this conclusion?</small>
+        <strong id="changeStrong">A different evidence pattern should lead to a different intervention.</strong>
+        <ul id="changeList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">
+    <div><div class="eyebrow">Inspect the reasoning</div><h2>The detail is available, but it does not lead the experience.</h2></div>
+    <p>These layers show the evidence discipline behind the recommendation for anyone who wants to inspect it.</p>
+  </div>
+
+  <section class="inspect">
+    <details>
+      <summary>Evidence used in this decision</summary>
+      <div class="detail-body"><div class="evidence-grid" id="evidenceGrid"></div></div>
+    </details>
+    <details>
+      <summary>Why the measures cannot simply be combined</summary>
+      <div class="detail-body"><div class="checks" id="checks"></div></div>
+    </details>
+    <details>
+      <summary>How KAALJI separates evidence, rules and judgment</summary>
+      <div class="detail-body">
+        <div class="method-note">
+          <div><b>Evidence stays traceable</b><p>Source, time period, population and definition remain attached to each measure.</p></div>
+          <div><b>Compatibility is rule-based</b><p>Measures are checked before calculations are allowed. Generative output should not override these rules.</p></div>
+          <div><b>The intervention remains a human decision</b><p>KAALJI can organize evidence and expose gaps; programme or policy teams remain responsible for what they do next.</p></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <div class="footer-note"><span>KAALJI · India 2050 — The Future of Care</span><span>Portfolio prototype · proposed, illustrative and not yet user-validated</span></div>
+</main>
+
+<script>
+const sources={
+  lasi:{url:'https://www.iipsindia.ac.in/sites/default/files/LASI_India_Report_2020_compressed.pdf',label:'IIPS / LASI Wave 1'},
+  pmspecial:{url:'https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2112161&lang=2&reg=48',label:'PIB · PM-SPECIAL FY2023–24'},
+  shatayu:{url:'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2264053&lang=2&reg=48',label:'PIB · SHATAYU'}
+};
+
+const sharedPipeline=[
+  {name:'Care need',state:'Partial context',cls:'partial',text:'LASI reports functional limitations among older adults. This is not the same as demand for paid care.'},
+  {name:'Trained',state:'Observed',cls:'known',text:'36,785 people were reported trained under PM-SPECIAL in FY2023–24.'},
+  {name:'Active',state:'Unknown',cls:'unknown',text:'Cohort-linked active employment or workforce participation is not established here.'},
+  {name:'Available',state:'Unknown',cls:'unknown',text:'Current hours, location, service type and willingness to accept work are not linked here.'},
+  {name:'Care delivered',state:'Unknown',cls:'unknown',text:'The evidence set does not show how many families actually received care from this workforce.'},
+  {name:'Quality + continuity',state:'Unknown',cls:'unknown',text:'Retention, continuity and quality outcomes are not connected to the training cohort.'}
+];
+
+const scenarios={
+  train:{
+    title:'Should we invest in more caregiver training?',
+    subtitle:'The system has evidence of training activity, but not enough evidence to show that training is the main constraint.',
+    badge:'DO NOT JUMP TO TRAINING YET',
+    strong:'Training may be part of the answer. The current evidence cannot show that it is the bottleneck.',
+    text:'We can see that people were trained. We cannot yet see how many became active caregivers, where they are available, or how much care they delivered.',
+    meaning:'If capacity is being lost after training, expanding training first could spend resources without fixing the real constraint.',
+    pipeline:sharedPipeline,
+    known:['PM-SPECIAL reported 36,785 people trained in FY2023–24 across 32 empanelled institutes.','LASI provides evidence of functional limitations among older adults, which helps establish care-related need but not paid-care demand.','SHATAYU adds a registration and discoverability layer to the workforce picture.'],
+    unknown:['How many trained people entered active caregiving work.','Where active caregivers are available and under what service conditions.','How much of the trained workforce became care actually delivered to families.'],
+    meaningList:['Do not treat a training count as current workforce supply.','Do not infer that more training is the first intervention without locating the loss in the conversion chain.','Measure trained → active → available → care delivered before choosing the intervention.'],
+    nextStrong:'Follow the trained cohort into active work.',
+    nextText:'Link training records with placement or employment, active status, geography and availability before deciding whether more training is the priority.',
+    changes:['If existing trained caregivers are largely active and available but unmet formal-care need remains high, additional training becomes a stronger hypothesis.','If conversion from training to active work is low, activation, placement or retention should be investigated before scaling training.','If active capacity exists but is concentrated in the wrong places, distribution and access become more plausible intervention targets.'],
+    evidence:[
+      ['REAL DATA','36,785','People trained through PM-SPECIAL','FY2023–24 · 32 empanelled institutes','pmspecial'],
+      ['REAL DATA','23.8%','Adults 60+ with ≥1 ADL limitation','LASI Wave 1 · India · 2017–18','lasi'],
+      ['REAL DATA','48.0%','Adults 60+ with ≥1 IADL limitation','LASI Wave 1 · India · 2017–18','lasi'],
+      ['DATA GAP','Not linked','Training → active work → care delivered','The bridge between stages is not observed in this evidence set',null]
+    ],
+    checks:[
+      ['warn','Time period','LASI need and PM-SPECIAL training refer to different periods','NOT ALIGNED'],
+      ['fail','Population','Older adults with functional limitations and people trained in a programme are different populations','NOT COMPARABLE'],
+      ['fail','Construct','Functional need is not paid-care demand; training is not active workforce supply','NOT EQUIVALENT'],
+      ['fail','Conversion','Employment, active status, availability and utilization are not linked to the training cohort','MISSING']
+    ]
+  },
+  registry:{
+    title:'Does caregiver registration prove usable workforce capacity?',
+    subtitle:'Registration improves visibility, but visibility is not the same as active availability or care delivered.',
+    badge:'TREAT REGISTRATION AS ONE STAGE',
+    strong:'Registration is useful progress. It should not be used as proof that a caregiver is currently available or delivering care.',
+    text:'SHATAYU creates a registration and discoverability layer. The next product question is whether registered caregivers are active, reachable, available and ultimately used.',
+    meaning:'A registry can reduce search friction, but programme teams still need downstream measures before treating registration as usable capacity.',
+    pipeline:[
+      sharedPipeline[0],sharedPipeline[1],
+      {name:'Registered',state:'Observable layer',cls:'known',text:'SHATAYU provides registration and district/state discoverability for trained geriatric caregivers.'},
+      sharedPipeline[3],sharedPipeline[4],sharedPipeline[5]
+    ],
+    known:['SHATAYU provides a mechanism for trained geriatric caregivers to self-register and become more discoverable.','Registration adds a measurable stage between training and active availability.'],
+    unknown:['Whether a registered caregiver is currently working or seeking work.','Actual hours, service type, location-specific availability and current capacity.','Whether a care seeker successfully connects and receives care.'],
+    meaningList:['Use registration as a visibility measure, not an employment measure.','Do not equate registered headcount with active capacity.','Connect registry data with active status and utilization before making supply claims.'],
+    nextStrong:'Measure what happens after registration.',
+    nextText:'Add cohort- and date-aligned active status, employment, availability and successful-care-connection measures to determine how much registration translates into usable capacity.',
+    changes:['If most registered caregivers are active and available, the registry becomes a stronger proxy for usable supply.','If many registered caregivers are inactive or unavailable, visibility has improved without equivalent capacity.','If families can find caregivers but cannot complete a care connection, the bottleneck lies further downstream.'],
+    evidence:[
+      ['REAL DATA','SHATAYU','National caregiver registration/discoverability mechanism','Launched in 2026 · district/state information','shatayu'],
+      ['DERIVED','New stage','Training → registration / discoverability','Analytical placement in the conversion chain',null],
+      ['DATA GAP','Active status','Current employment, hours and willingness to accept work','Not established by registration alone',null],
+      ['DATA GAP','Utilization','Successful connection and care received','Not established by registration alone',null]
+    ],
+    checks:[
+      ['pass','Function','Registration / discoverability is source-supported','PASS'],
+      ['fail','Employment equivalence','Registration does not establish employment','NOT EQUIVALENT'],
+      ['fail','Availability equivalence','Registration does not establish active availability','NOT EQUIVALENT'],
+      ['fail','Care delivered','Registration does not establish utilization or continuity','NOT OBSERVED']
+    ]
+  },
+  shortage:{
+    title:'Can current public data support a national caregiver-shortage claim?',
+    subtitle:'Relevant numbers exist, but they do not share the denominator, time period or construct needed for a national shortage estimate.',
+    badge:'SHORTAGE CLAIM NOT ESTABLISHED',
+    strong:'The current evidence set is not sufficient to calculate a defensible national caregiver shortage.',
+    text:'Functional-need measures, training counts and registration information describe different parts of the system. They can inform the question, but they cannot simply be divided or combined into a shortage ratio.',
+    meaning:'A confident national shortage number would create false precision and could push decision-makers toward the wrong intervention.',
+    pipeline:sharedPipeline,
+    known:['LASI provides national evidence of functional limitations among adults aged 60+.','PM-SPECIAL reports programme training activity.','SHATAYU adds registration/discoverability information.'],
+    unknown:['A common denominator linking formal-care need with required caregiver capacity.','Cohort-aligned active workforce supply and geography.','Unmet formal-care need and utilization at the same time and geography.'],
+    meaningList:['Keep the sources in context instead of forcing them into one ratio.','A missing denominator is a product result, not a reason to invent one.','Investigate aligned need, supply and utilization before estimating adequacy.'],
+    nextStrong:'Build an aligned need-to-capacity denominator.',
+    nextText:'Obtain geography- and period-aligned measures of formal-care need, active workforce availability and utilization before estimating shortage or coverage.',
+    changes:['A common analytical population and period would make a shortage estimate more defensible.','Active workforce capacity must be measured as capacity, not inferred from annual training throughput.','Formal-care need must be distinguished from functional limitation alone.'],
+    evidence:[
+      ['REAL DATA','23.8% / 48.0%','ADL / IADL limitation among adults 60+','LASI Wave 1 · 2017–18','lasi'],
+      ['REAL DATA','36,785','PM-SPECIAL trainees','FY2023–24','pmspecial'],
+      ['DERIVED','Context only','Both matter to care capacity','Relevant does not mean directly comparable',null],
+      ['DATA GAP','Missing bridge','No aligned need → active supply dataset','National shortage cannot be estimated from these values alone',null]
+    ],
+    checks:[
+      ['pass','Geography','Both can be discussed at India level','PARTIAL PASS'],
+      ['fail','Time period','2017–18 survey versus FY2023–24 programme throughput','FAIL'],
+      ['fail','Population / denominator','Adults 60+ and people trained are different populations','FAIL'],
+      ['fail','Construct','Functional limitation and workforce training measure different things','FAIL'],
+      ['fail','Stock / flow','Prevalence and annual training throughput are not directly commensurable','FAIL']
+    ]
+  }
+};
+
+function sourceLink(key){if(!key||!sources[key])return'';const s=sources[key];return `<a class="source" href="${s.url}" target="_blank" rel="noopener noreferrer">View source · ${s.label}</a>`}
+function renderPipeline(items){document.getElementById('pipeline').innerHTML=items.map((x,i)=>`<div class="stage ${x.cls}"><div class="num">0${i+1}</div><h5>${x.name}</h5><span class="state">${x.state}</span><p>${x.text}</p></div>`).join('')}
+function renderList(id,items){document.getElementById(id).innerHTML=items.map(x=>`<li>${x}</li>`).join('')}
+function renderEvidence(items){document.getElementById('evidenceGrid').innerHTML=items.map(e=>{const cls=e[0]==='REAL DATA'?'real':e[0]==='DERIVED'?'derived':e[0]==='HYPOTHESIS'?'hyp':'gap';return `<div class="e-card"><div class="e-type ${cls}">${e[0]}</div><div class="metric">${e[1]}</div><p>${e[2]}</p><div class="meta">${e[3]}</div>${sourceLink(e[4])}</div>`}).join('')}
+function renderChecks(items){document.getElementById('checks').innerHTML=items.map(c=>{const icon=c[0]==='pass'?'✓':c[0]==='warn'?'!':'×';return `<div class="check ${c[0]}"><span class="icon">${icon}</span><span><b>${c[1]}</b><br><span style="color:var(--muted)">${c[2]}</span></span><em>${c[3]}</em></div>`}).join('')}
+function render(key){const s=scenarios[key];document.getElementById('resultTitle').textContent=s.title;document.getElementById('resultSubtitle').textContent=s.subtitle;document.getElementById('recBadge').textContent=s.badge;document.getElementById('answerStrong').textContent=s.strong;document.getElementById('answerText').textContent=s.text;document.getElementById('decisionMeaning').textContent=s.meaning;renderPipeline(s.pipeline);renderList('knownList',s.known);renderList('unknownList',s.unknown);renderList('meaningList',s.meaningList);document.getElementById('nextStrong').textContent=s.nextStrong;document.getElementById('nextText').textContent=s.nextText;document.getElementById('changeStrong').textContent='A different evidence pattern should lead to a different intervention.';renderList('changeList',s.changes);renderEvidence(s.evidence);renderChecks(s.checks)}
+document.getElementById('run').addEventListener('click',()=>render(document.getElementById('decision').value));
+document.getElementById('decision').addEventListener('change',()=>render(document.getElementById('decision').value));
+render('train');
+</script>
+</body>
+</html>
