@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAALJI — Where AI Belongs</title>
+<style>
+:root{
+  --bg:#f6f3ee;
+  --card:#ffffff;
+  --ink:#202622;
+  --muted:#69716d;
+  --accent:#31584b;
+  --soft:#e8efeb;
+  --warm:#f3ece2;
+  --line:#d8ddd9;
+  --dark:#1f2d27;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.wrap{max-width:1100px;margin:0 auto;padding:58px 24px 76px}
+.eyebrow{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:800
+}
+h1{
+  margin:10px 0 16px;font-size:46px;line-height:1.06;
+  letter-spacing:-.035em;max-width:920px
+}
+.lead{
+  max-width:850px;margin:0 0 30px;font-size:19px;line-height:1.65;color:var(--muted)
+}
+.core{
+  background:var(--soft);
+  border-left:4px solid var(--accent);
+  border-radius:10px;
+  padding:18px 20px;
+  font-size:18px;
+  line-height:1.55;
+  margin-bottom:34px
+}
+.flow{
+  display:grid;
+  grid-template-columns:1fr 42px 1fr 42px 1fr;
+  gap:12px;
+  align-items:stretch
+}
+.arrow{
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;color:#9aa39f
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px;
+  min-height:380px;
+  box-shadow:0 8px 26px rgba(31,37,34,.045)
+}
+.card .num{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;margin-bottom:16px
+}
+.ai .num{background:#edf1f6;color:#394f6b}
+.rules .num{background:var(--warm);color:#6b5437}
+.human .num{background:var(--soft);color:var(--accent)}
+.card h2{font-size:25px;line-height:1.18;margin:0 0 6px;letter-spacing:-.02em}
+.sub{font-size:14px;color:var(--muted);margin-bottom:20px}
+.item{margin:15px 0}
+.item strong{font-size:14.5px;display:block;margin-bottom:4px}
+.item p{font-size:14px;line-height:1.5;color:var(--muted);margin:0}
+.example{
+  margin-top:34px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden
+}
+.example-head{
+  padding:20px 24px;background:var(--dark);color:#fff
+}
+.example-head .small{
+  font-size:11px;text-transform:uppercase;letter-spacing:.1em;
+  font-weight:800;opacity:.7
+}
+.example-head h3{margin:6px 0 0;font-size:23px;line-height:1.3}
+.example-grid{
+  display:grid;grid-template-columns:repeat(3,1fr)
+}
+.ex{
+  padding:20px 22px;border-right:1px solid var(--line)
+}
+.ex:last-child{border-right:none}
+.ex .label{
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:800;margin-bottom:7px
+}
+.ex p{margin:0;font-size:14.5px;line-height:1.55}
+.never{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px
+}
+.panel{
+  padding:22px 24px;border-radius:18px;
+  background:#fff;border:1px solid var(--line)
+}
+.panel h3{margin:0 0 12px;font-size:21px}
+.panel ul{padding-left:20px;margin:0}
+.panel li{margin:9px 0;font-size:14.5px;line-height:1.45}
+.boundary{
+  background:#f3e9e6;
+  border-color:#e5d2cc
+}
+.status{
+  margin-top:28px;
+  padding:20px 22px;
+  background:var(--soft);
+  border-radius:16px;
+  font-size:15px;
+  line-height:1.6
+}
+.skills{
+  margin-top:28px;padding:20px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.skills strong{display:block;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:9px}
+.tag{
+  padding:7px 11px;border-radius:999px;background:#fff;
+  border:1px solid #cdd6d0;font-size:13px
+}
+.footer{
+  margin-top:22px;color:var(--muted);font-size:13px;line-height:1.55
+}
+@media(max-width:860px){
+  h1{font-size:36px}
+  .lead{font-size:17px}
+  .flow{grid-template-columns:1fr}
+  .arrow{transform:rotate(90deg);height:24px}
+  .card{min-height:auto}
+  .example-grid,.never{grid-template-columns:1fr}
+  .ex{border-right:none;border-bottom:1px solid var(--line)}
+  .ex:last-child{border-bottom:none}
+}
+</style>
+<style id="portfolio-return-bar-style">.portfolio-return-bar{position:sticky;top:0;z-index:9999;background:#181817;color:#fffdf8;padding:10px 18px;font:12px/1.4 Arial,sans-serif;letter-spacing:.02em}.portfolio-return-bar a{color:#fffdf8;text-decoration:none;border-bottom:1px solid #777}</style></head>
+<body><div class="portfolio-return-bar"><a href="kaalji.html">← KAALJI case study</a> &nbsp;·&nbsp; <a href="../index.html#work">Portfolio</a></div>
+<div class="wrap">
+  <div class="eyebrow">India 2050 · KAALJI · Responsible AI Design</div>
+  <h1>Where AI belongs — and where it should stop</h1>
+  <p class="lead">
+    KAALJI does not need AI to make the final decision. The useful role for AI is narrower:
+    help people find, understand and explore evidence faster, while important checks and decisions stay visible.
+  </p>
+
+  <div class="core">
+    <strong>My design rule:</strong><br>
+    AI can make evidence easier to navigate. It should not decide whether unlike datasets are comparable, invent missing evidence, or own consequential decisions.
+  </div>
+
+  <section class="flow">
+    <div class="card ai">
+      <div class="num">1</div>
+      <h2>AI helps with language and exploration</h2>
+      <div class="sub">Useful for language, search and exploration</div>
+
+      <div class="item">
+        <strong>Find relevant information</strong>
+        <p>Help locate sources or passages related to the user's question.</p>
+      </div>
+      <div class="item">
+        <strong>Explain in plain language</strong>
+        <p>Summarize what a source says without changing what it means.</p>
+      </div>
+      <div class="item">
+        <strong>Surface possible explanations</strong>
+        <p>Suggest hypotheses worth investigating — clearly labelled as possibilities, not facts.</p>
+      </div>
+      <div class="item">
+        <strong>Help someone ask a better question</strong>
+        <p>Turn a vague concern into a clearer evidence question.</p>
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="card rules">
+      <div class="num">2</div>
+      <h2>Evidence rules stay explicit</h2>
+      <div class="sub">Important checks should be reproducible and open to inspection</div>
+
+      <div class="item">
+        <strong>Can the numbers be compared?</strong>
+        <p>Check geography, time period, population, definition and what each number measures.</p>
+      </div>
+      <div class="item">
+        <strong>Keep the source attached</strong>
+        <p>Every important figure should remain connected to where it came from.</p>
+      </div>
+      <div class="item">
+        <strong>Do the calculation visibly</strong>
+        <p>Derived numbers should come from clear formulas rather than hidden AI arithmetic.</p>
+      </div>
+      <div class="item">
+        <strong>Keep labels intact</strong>
+        <p>Fact, calculation, hypothesis and missing data should not silently turn into one another.</p>
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="card human">
+      <div class="num">3</div>
+      <h2>People own the decision</h2>
+      <div class="sub">Consequential judgment and accountability stay with the user</div>
+
+      <div class="item">
+        <strong>What does the evidence mean here?</strong>
+        <p>Context still matters. A system cannot understand every local care reality from a spreadsheet.</p>
+      </div>
+      <div class="item">
+        <strong>What should be investigated next?</strong>
+        <p>KAALJI can suggest a direction, but the user decides what is worth pursuing.</p>
+      </div>
+      <div class="item">
+        <strong>What action should be taken?</strong>
+        <p>Programme, policy, funding and healthcare decisions should remain accountable to people.</p>
+      </div>
+      <div class="item">
+        <strong>When is the evidence not good enough?</strong>
+        <p>A person must be able to say: “We do not know enough yet.”</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="example">
+    <div class="example-head">
+      <div class="small">Example</div>
+      <h3>Question: “Does this training number prove we have enough caregivers?”</h3>
+    </div>
+    <div class="example-grid">
+      <div class="ex">
+        <div class="label">AI can help</div>
+        <p>Find the training source and explain what the reported figure refers to.</p>
+      </div>
+      <div class="ex">
+        <div class="label">Rules check</div>
+        <p>Training is a pipeline measure. Without employment and availability data, it cannot be treated as active workforce supply.</p>
+      </div>
+      <div class="ex">
+        <div class="label">Human judgment</div>
+        <p>Whether the next step should be employment data, local availability research, affordability research, or something else.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="never">
+    <div class="panel boundary">
+      <h3>KAALJI should not let AI…</h3>
+      <ul>
+        <li>invent a missing number;</li>
+        <li>treat two incompatible datasets as comparable;</li>
+        <li>turn functional care need into paid-care demand;</li>
+        <li>declare a caregiver shortage without supporting evidence;</li>
+        <li>upgrade a hypothesis into a fact;</li>
+        <li>make autonomous healthcare, programme or policy decisions.</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h3>Why I draw the boundary here</h3>
+      <ul>
+        <li>AI is useful when the information is large and fragmented.</li>
+        <li>It is less trustworthy when a precise answer requires missing context.</li>
+        <li>Visible rules make the product easier to question and audit.</li>
+        <li>Human ownership keeps responsibility clear when decisions matter.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="status">
+    <strong>Prototype status:</strong> This is the proposed responsibility model for a future KAALJI product.
+    The current portfolio prototype demonstrates the workflow; it does not claim that a production AI system,
+    automated evidence ingestion or autonomous decision engine has been implemented.
+  </div>
+
+  <section class="skills">
+    <strong>What this artifact demonstrates to a recruiter</strong>
+    <div class="tags">
+      <span class="tag">AI product thinking</span>
+      <span class="tag">Human-in-the-loop design</span>
+      <span class="tag">Evidence governance</span>
+      <span class="tag">Healthcare risk awareness</span>
+      <span class="tag">Technical judgment</span>
+      <span class="tag">Responsible product scope</span>
+    </div>
+  </section>
+
+  <p class="footer">
+    Proposed architecture and product responsibility boundaries. This artifact does not claim a live production AI implementation.
+  </p>
+</div>
+</body>
+</html>

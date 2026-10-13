@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAALJI — How I Would Test Whether It Is Worth Building</title>
+<style>
+:root{
+  --bg:#f5f3ee;
+  --card:#ffffff;
+  --ink:#202622;
+  --muted:#69716d;
+  --accent:#31584b;
+  --soft:#e8efeb;
+  --warm:#f4ede3;
+  --line:#d9ddd9;
+  --danger:#6f3d35;
+  --dangerbg:#f4e9e6;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:58px 24px 76px}
+.eyebrow{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:800
+}
+h1{
+  margin:10px 0 16px;font-size:46px;line-height:1.05;
+  letter-spacing:-.035em;max-width:900px
+}
+.lead{
+  max-width:850px;margin:0 0 28px;font-size:19px;line-height:1.65;color:var(--muted)
+}
+.hero-note{
+  background:var(--soft);border-left:4px solid var(--accent);
+  border-radius:10px;padding:18px 20px;margin:28px 0 36px;
+  font-size:17px;line-height:1.55
+}
+.flow{display:grid;gap:18px}
+.card{
+  display:grid;grid-template-columns:110px 1fr;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:24px;box-shadow:0 8px 26px rgba(31,37,34,.045)
+}
+.num{
+  width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:var(--soft);color:var(--accent);font-size:24px;font-weight:800
+}
+.card h2{font-size:25px;line-height:1.2;letter-spacing:-.02em;margin:0 0 10px}
+.question{font-size:17px;line-height:1.5;margin:0 0 16px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{
+  background:#fafaf8;border-radius:12px;padding:14px 15px;border:1px solid #eaede9
+}
+.label{
+  font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px
+}
+.box p{margin:0;font-size:14.5px;line-height:1.55}
+.good{background:var(--warm)}
+.stop{
+  margin-top:18px;background:var(--dangerbg);border-radius:12px;padding:14px 15px;
+  color:#4c2d28;font-size:14.5px;line-height:1.5
+}
+.ai{
+  margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:18px
+}
+.panel{
+  border-radius:18px;padding:23px;border:1px solid var(--line);background:#fff
+}
+.panel h3{margin:0 0 10px;font-size:21px}
+.panel p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+.kill{
+  background:#1f2d27;color:#fff;border:none
+}
+.kill h3{color:#fff}
+.kill p{color:#e4ebe7}
+.kill ul{margin:12px 0 0;padding-left:20px;color:#eef3f0}
+.kill li{margin:7px 0;line-height:1.45}
+.test{
+  margin-top:30px;background:var(--soft);border-radius:18px;padding:24px
+}
+.test h3{margin:0 0 12px;font-size:22px}
+.test p{margin:7px 0;font-size:15px;line-height:1.6}
+.compare{
+  display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-top:18px
+}
+.sample{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;min-height:130px
+}
+.sample strong{display:block;margin-bottom:8px;color:var(--accent)}
+.vs{font-weight:800;color:var(--muted)}
+.skills{
+  margin-top:30px;padding:22px 24px;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)
+}
+.skills strong{display:block;margin-bottom:12px}
+.tags{display:flex;gap:9px;flex-wrap:wrap}
+.tag{
+  padding:7px 11px;border-radius:999px;border:1px solid #ccd5cf;
+  font-size:13px;background:#fff
+}
+.footer{margin-top:22px;color:var(--muted);font-size:13px;line-height:1.55}
+@media(max-width:760px){
+  h1{font-size:36px}
+  .lead{font-size:17px}
+  .card{grid-template-columns:1fr}
+  .num{margin-bottom:16px}
+  .cols,.ai{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .vs{text-align:center}
+}
+</style>
+<style id="portfolio-return-bar-style">.portfolio-return-bar{position:sticky;top:0;z-index:9999;background:#181817;color:#fffdf8;padding:10px 18px;font:12px/1.4 Arial,sans-serif;letter-spacing:.02em}.portfolio-return-bar a{color:#fffdf8;text-decoration:none;border-bottom:1px solid #777}</style></head>
+<body><div class="portfolio-return-bar"><a href="kaalji.html">← KAALJI case study</a> &nbsp;·&nbsp; <a href="../index.html#work">Portfolio</a></div>
+<div class="wrap">
+  <div class="eyebrow">India 2050 · KAALJI · Validation Plan</div>
+  <h1>How would I know if KAALJI is actually worth building?</h1>
+  <p class="lead">
+    A prototype can be persuasive and still be wrong. Before expanding KAALJI,
+    I would test whether its evidence checks and explanations actually help people reason
+    more accurately about a care-system problem — and whether that changes what they do next.
+  </p>
+
+  <div class="hero-note">
+    <strong>The product should be allowed to fail.</strong>
+    If the evidence is too weak, the workflow sends people in the wrong direction,
+    or users make the same decisions without KAALJI, I would reshape or stop the concept.
+  </div>
+
+  <div class="flow">
+    <section class="card">
+      <div class="num">1</div>
+      <div>
+        <h2>Can the evidence support the question?</h2>
+        <p class="question">Before testing the interface, I would first check whether the important care questions can actually be answered — or honestly bounded — with available evidence.</p>
+        <div class="cols">
+          <div class="box">
+            <div class="label">How I would test it</div>
+            <p>Take a set of real care-capacity questions and run the sources through KAALJI's comparison checks: same population? same time period? same definition? same stage of the system?</p>
+          </div>
+          <div class="box good">
+            <div class="label">A good result looks like</div>
+            <p>KAALJI can either support a comparison with traceable evidence or clearly explain why the evidence is not strong enough.</p>
+          </div>
+        </div>
+        <div class="stop"><strong>Warning sign:</strong> Most useful questions remain unanswerable and KAALJI adds little beyond a list of links and reports.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="num">2</div>
+      <div>
+        <h2>Does it point us toward the right next question?</h2>
+        <p class="question">KAALJI should not pretend to know the answer. Its value is helping someone investigate the most useful next piece of evidence.</p>
+        <div class="cols">
+          <div class="box">
+            <div class="label">How I would test it</div>
+            <p>Use care-system cases where additional information can later be obtained. Compare KAALJI's suggested next investigation with what the new evidence eventually reveals.</p>
+          </div>
+          <div class="box good">
+            <div class="label">A good result looks like</div>
+            <p>The suggested evidence helps rule out weak explanations and focus attention on the explanations that still make sense.</p>
+          </div>
+        </div>
+        <div class="stop"><strong>Warning sign:</strong> The product repeatedly recommends irrelevant information or makes a weak explanation look more convincing than it is.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="num">3</div>
+      <div>
+        <h2>Do people understand the evidence better?</h2>
+        <p class="question">This is the clearest early user test: does context help someone avoid jumping to an unsupported conclusion?</p>
+        <div class="cols">
+          <div class="box">
+            <div class="label">How I would test it</div>
+            <p>Give two groups the same care-capacity problem. One sees only the numbers. The other sees KAALJI's source context, comparison warning, known/unknown view and next question.</p>
+          </div>
+          <div class="box good">
+            <div class="label">A good result looks like</div>
+            <p>People using KAALJI are better at separating facts from assumptions and can explain what the numbers do — and do not — prove.</p>
+          </div>
+        </div>
+        <div class="stop"><strong>Warning sign:</strong> The extra context makes the task more complicated without improving the quality of interpretation.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="num">4</div>
+      <div>
+        <h2>Does it change what someone does next?</h2>
+        <p class="question">A product can be interesting and still have no decision value. The strongest test is whether KAALJI changes the next action in a sensible way.</p>
+        <div class="cols">
+          <div class="box">
+            <div class="label">How I would test it</div>
+            <p>Observe a realistic planning task with and without KAALJI. What data does the person request? Which assumption do they investigate? Do they reject a misleading comparison?</p>
+          </div>
+          <div class="box good">
+            <div class="label">A good result looks like</div>
+            <p>The next action becomes more evidence-based — for example, asking for employment data before deciding to fund more training.</p>
+          </div>
+        </div>
+        <div class="stop"><strong>Warning sign:</strong> Users like the interface, but still make the same unsupported decision they would have made without it.</div>
+      </div>
+    </section>
+  </div>
+
+  <section class="test">
+    <h3>The first experiment I would run</h3>
+    <p><strong>Question:</strong> Does showing evidence context reduce unsupported conclusions compared with showing numbers alone?</p>
+    <div class="compare">
+      <div class="sample">
+        <strong>Version A — Numbers only</strong>
+        “36,785 caregivers trained.”<br><br>
+        Ask the user: <em>What does this tell you about caregiver availability?</em>
+      </div>
+      <div class="vs">VS</div>
+      <div class="sample">
+        <strong>Version B — KAALJI view</strong>
+        Training figure + what it measures + what it cannot prove + missing employment/availability evidence + next question.
+      </div>
+    </div>
+    <p><strong>What I would watch:</strong> How often people make an unsupported shortage/supply claim, whether they identify the missing evidence, and the quality of the next question they ask.</p>
+  </section>
+
+  <section class="ai">
+    <div class="panel">
+      <h3>One extra check for AI</h3>
+      <p>
+        If AI is used to help find or explain evidence, I would separately test whether it keeps the correct source,
+        preserves labels such as fact vs hypothesis, and handles conflicting evidence without inventing an answer.
+        Speed is useful only if evidence discipline is not lost.
+      </p>
+    </div>
+
+    <div class="panel kill">
+      <h3>When I would stop or reshape KAALJI</h3>
+      <p>I would not keep building simply because I had already invested time in the idea. I would reconsider it if:</p>
+      <ul>
+        <li>the evidence base is too weak for the questions users actually care about;</li>
+        <li>users do not need help interpreting the evidence;</li>
+        <li>the workflow does not improve the next investigation or decision;</li>
+        <li>existing tools already solve the job well enough.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills">
+    <strong>What this artifact demonstrates to a recruiter</strong>
+    <div class="tags">
+      <span class="tag">Product validation</span>
+      <span class="tag">Experiment design</span>
+      <span class="tag">Decision thinking</span>
+      <span class="tag">Healthcare evidence</span>
+      <span class="tag">AI risk awareness</span>
+      <span class="tag">Kill / reshape criteria</span>
+    </div>
+  </section>
+
+  <p class="footer">
+    Validation plan only. No user test, decision-impact result or AI evaluation result is being claimed.
+    The purpose is to show how the proposed product would be tested before stronger claims were made.
+  </p>
+</div>
+</body>
+</html>

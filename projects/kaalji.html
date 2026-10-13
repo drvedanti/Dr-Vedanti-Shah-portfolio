@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KAALJI — India 2050 | Dr. Vedanti Shah</title>
+  <meta name="description" content="KAALJI — an evidence-led healthcare research and product strategy case study by Dr. Vedanti Shah.">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .case-study { max-width: 1180px; margin: auto; }
+    .case-hero { padding: 110px 32px 120px; }
+    .case-hero h1 { font-size: clamp(72px, 13vw, 154px); line-height: .88; letter-spacing: -.07em; font-weight: 500; margin: 25px 0; }
+    .case-tagline { font-family: var(--serif); font-size: 30px; }
+    .case-intro { max-width: 770px; font-size: 21px; color: var(--muted); margin-top: 25px; }
+    .case-facts { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); margin-top: 70px; }
+    .case-facts div { padding: 25px 25px 0 0; }
+    .case-facts span { display:block; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.12em; margin-bottom:8px; }
+    .case-section { padding: 100px 32px; border-top: 1px solid var(--line); }
+    .case-section h2 { max-width: 980px; font-size: clamp(38px, 5.5vw, 68px); line-height: 1.03; letter-spacing: -.045em; font-weight:500; margin:25px 0 35px; }
+    .case-section > p:not(.section-label) { max-width: 780px; font-size:18px; color:var(--muted); }
+    .pullquote { max-width: 900px; font-family: var(--serif); font-size: clamp(28px, 4vw, 46px); line-height: 1.2; margin: 50px 0 0; }
+    .evidence-grid, .decision-grid, .proof-grid, .ai-grid, .validation-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); margin-top:55px; }
+    .evidence-card, .decision, .proof-card, .ai-card, .validation-card { background:var(--paper); padding:34px; min-height:220px; }
+    .evidence-card span, .decision span, .proof-card span, .ai-card span, .validation-card span { color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:.1em; }
+    .evidence-card h3, .decision h3, .proof-card h3, .ai-card h3, .validation-card h3 { font-size:24px; font-weight:500; margin:42px 0 12px; }
+    .evidence-card p, .decision p, .proof-card p, .ai-card p, .validation-card p { color:var(--muted); margin:0; }
+    .source-link { display:inline-block; margin-top:18px; font-size:12px; border-bottom:1px solid var(--line); color:var(--muted); }
+    .capacity-flow, .workflow-flow { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-top:50px; }
+    .capacity-flow span, .workflow-flow span { padding:12px 15px; border:1px solid var(--line); background:var(--white); font-size:14px; }
+    .capacity-flow b, .workflow-flow b { color:var(--accent); font-weight:400; }
+    .plain-questions { margin-top:35px; display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .plain-questions div { background:var(--soft); padding:20px; font-family:var(--serif); font-size:20px; }
+    .product-panel { margin-top:50px; padding:42px; background:var(--dark); color:var(--white); }
+    .product-panel h3 { font-size:38px; font-weight:500; margin:0 0 12px; }
+    .product-panel p { max-width:760px; color:#bdbdb5; }
+    .product-panel .case-links a { color:var(--white); border-bottom-color:#6b6e69; }
+    .case-links { display:flex; gap:22px; flex-wrap:wrap; margin-top:34px; }
+    .case-links a { font-size:14px; border-bottom:1px solid var(--ink); padding-bottom:3px; }
+    .reflection { background:var(--dark); color:var(--white); }
+    .reflection .section-label { color:#91aa9f; }
+    .reflection > p:not(.section-label) { color:#bdbdb5; }
+    .reflection .pullquote { color:var(--white); }
+    .status-note { display:inline-block; margin-top:22px; padding:7px 10px; border:1px solid var(--line); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+    .proof-card a { display:inline-block; margin-top:22px; font-size:13px; border-bottom:1px solid var(--ink); }
+    @media (max-width:760px){
+      .case-hero,.case-section{padding-left:20px;padding-right:20px;}
+      .case-facts,.evidence-grid,.decision-grid,.proof-grid,.ai-grid,.validation-grid,.plain-questions{grid-template-columns:1fr;}
+      .product-panel{padding:28px;}
+    }
+  </style>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="../index.html">Vedanti Shah</a>
+  <a class="text-link" href="../index.html#work">← Back to work</a>
+</header>
+<main class="case-study">
+<section class="case-hero">
+  <p class="eyebrow">02 · Healthcare Research · Strategy · Product</p>
+  <h1>KAALJI</h1>
+  <p class="case-tagline">From care need to care delivered.</p>
+  <p class="case-intro">An independent investigation into a deceptively simple question: when India trains more caregivers, how much of that potential capacity becomes care that families can actually find, use and trust? KAALJI emerged from the evidence as a proposed decision-support concept for tracing that journey without asking the data to prove more than it can.</p>
+  <div class="case-facts">
+    <div><span>My role</span><strong>Research · Product strategy · Prototype</strong></div>
+    <div><span>Domain</span><strong>Ageing · Elder care · Health systems</strong></div>
+    <div><span>Status</span><strong>Proposed concept · Not a launched product</strong></div>
+  </div>
+</section>
+
+<section class="case-section">
+  <p class="section-label">01 · The question</p>
+  <h2>I did not start with a product idea.</h2>
+  <p>I began with an ageing-population question. My clinical work had made one thing tangible: treatment may end inside a hospital, but care continues after the patient leaves — often inside a family that has to make the system work in real life.</p>
+  <p>My first question was whether India would have enough caregivers as the population ages. Once I started following the evidence, that question became too crude. The more useful question was what happens between care being needed and care actually being delivered.</p>
+  <p class="pullquote">I did not build KAALJI and then look for a problem. The evidence changed the problem I thought I was solving.</p>
+</section>
+
+<section class="case-section">
+  <p class="section-label">02 · Evidence changed the question</p>
+  <h2>The hard part was not finding numbers. It was deciding what each number could legitimately mean.</h2>
+  <p>I compared evidence on functional limitations, caregiver training and emerging caregiver-registration systems. None of those measures is inherently weak. The problem appears when a measure from one stage of the system is used as evidence for another — for example, treating training as active workforce supply or functional need as paid-care demand.</p>
+  <div class="evidence-grid">
+    <article class="evidence-card">
+      <span>Functional need</span><h3>LASI</h3><p>ADL and IADL limitations can show that older adults may need support. They do not tell us who needs, wants or can afford paid care.</p>
+      <a class="source-link" target="_blank" rel="noopener" href="https://www.iipsindia.ac.in/sites/default/files/LASI_India_Executive_Summary_0.pdf">Official source ↗</a>
+    </article>
+    <article class="evidence-card">
+      <span>Training pipeline</span><h3>PM-SPECIAL</h3><p>Training counts show workforce development activity. They do not establish how many trainees enter employment or remain active caregivers.</p>
+      <a class="source-link" target="_blank" rel="noopener" href="https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2112161&lang=2&reg=48">Official source ↗</a>
+    </article>
+    <article class="evidence-card">
+      <span>Registration + visibility</span><h3>SHATAYU</h3><p>Registration and district/state availability can improve visibility. They are not the same as employment, utilization or care delivered.</p>
+      <a class="source-link" target="_blank" rel="noopener" href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2277755&lang=1&reg=3">Official source ↗</a>
+    </article>
+    <article class="evidence-card">
+      <span>Evidence discipline</span><h3>Before combining evidence</h3><p>Two valid numbers may still describe different years, populations, definitions or stages of the system. A precise comparison is not necessarily a valid one.</p>
+    </article>
+  </div>
+</section>
+
+<section class="case-section">
+  <p class="section-label">03 · Care-capacity model</p>
+  <h2>Training a caregiver is not the same as creating usable care capacity.</h2>
+  <p>Once I stopped treating workforce supply as a single number, the problem became easier to reason about. I mapped care as a conversion pathway: each stage can break for a different reason, and each requires different evidence.</p>
+  <div class="capacity-flow">
+    <span>Care need</span><b>→</b><span>Family capacity</span><b>→</b><span>Formal support</span><b>→</b><span>Training</span><b>→</b><span>Registration</span><b>→</b><span>Employment</span><b>→</b><span>Availability</span><b>→</b><span>Affordability</span><b>→</b><span>Utilization</span><b>→</b><span>Retention + quality</span>
+  </div>
+  <div class="decision-grid">
+    <article class="decision"><span>01</span><h3>Need ≠ paid-care demand</h3><p>Functional difficulty can indicate support needs without proving demand for professional care.</p></article>
+    <article class="decision"><span>02</span><h3>Training ≠ active workforce</h3><p>A completed training programme is one stage. Employment and active availability need separate measurement.</p></article>
+    <article class="decision"><span>03</span><h3>Visibility ≠ utilization</h3><p>A registered caregiver can be discoverable without evidence that care was delivered.</p></article>
+    <article class="decision"><span>04</span><h3>Availability ≠ reliable care</h3><p>Access, affordability, competence, continuity and accountability still shape whether care works for families.</p></article>
+  </div>
+</section>
+
+<section class="case-section">
+  <p class="section-label">04 · Product direction</p>
+  <h2>The product idea came later: a tool for reasoning before intervening.</h2>
+  <p>At this point, designing another caregiver marketplace would have been premature. The more interesting product problem was upstream: helping programme, healthcare strategy and planning teams understand what kind of care-capacity problem they are looking at before choosing an intervention. That became KAALJI.</p>
+  <div class="product-panel">
+    <h3>KAALJI</h3>
+    <p>A proposed decision-support tool that keeps the evidence, its limits and the next investigative question in the same view — so a team can distinguish a training problem from a workforce-conversion, access, affordability or measurement problem.</p>
+    <span class="status-note">Proposed / illustrative · not a production system</span>
+    <div class="case-links"><a href="kaalji-prototype.html">Explore interactive prototype ↗</a></div>
+  </div>
+</section>
+
+<section class="case-section">
+  <p class="section-label">05 · Product workflow</p>
+  <h2>A useful product should make uncertainty visible, not tidy it away.</h2>
+  <p>The workflow begins with the decision question, then works backward through the evidence. The aim is not to produce a confident answer at any cost. It is to show what is comparable, what is known, what is missing and what evidence would most improve the next decision.</p>
+  <div class="workflow-flow">
+    <span>Question</span><b>→</b><span>Evidence</span><b>→</b><span>Compatibility</span><b>→</b><span>Signal</span><b>→</b><span>Evidence strength</span><b>→</b><span>Known / unknown</span><b>→</b><span>Next investigation</span>
+  </div>
+  <div class="plain-questions">
+    <div>Can these numbers actually be compared?</div>
+    <div>What stands out?</div>
+    <div>How much does the evidence support this?</div>
+    <div>What should we check next?</div>
+  </div>
+</section>
+
+<section class="case-section">
+  <p class="section-label">06 · Responsible AI</p>
+  <h2>AI can help navigate the evidence. It should not quietly redefine it.</h2>
+  <p>In KAALJI, AI is useful for language-heavy work such as finding, summarizing and explaining evidence. Comparability checks, calculations, provenance and evidence labels should remain inspectable, while consequential decisions stay with people.</p>
+  <div class="ai-grid">
+    <article class="ai-card"><span>Language + exploration</span><h3>Where AI can help</h3><p>Find and summarize relevant evidence, explain source-supported signals, surface candidate hypotheses and support natural-language exploration.</p></article>
+    <article class="ai-card"><span>Evidence rules</span><h3>What should stay explicit</h3><p>Source provenance, compatibility checks, calculations and evidence labels should remain visible, reproducible and open to challenge.</p></article>
+    <article class="ai-card"><span>Accountability</span><h3>What people still own</h3><p>Interpretation, programme choices, funding, policy and any clinical or patient-level decisions remain accountable to people.</p></article>
+    <article class="ai-card"><span>Prototype boundary</span><h3>What I am not claiming</h3><p>This portfolio prototype demonstrates product logic. It is not a production AI system, automated national-data pipeline or autonomous decision engine.</p></article>
+  </div>
+  <div class="case-links"><a href="kaalji-ai-responsibility.html">See AI responsibility model ↗</a></div>
+</section>
+
+<section class="case-section">
+  <p class="section-label">07 · Validation</p>
+  <h2>The next question is not whether the prototype looks convincing. It is whether it improves a real decision.</h2>
+  <p>I would validate KAALJI in four places: whether the evidence is fit for the question, whether the workflow diagnoses the problem sensibly, whether users understand the evidence better, and whether that changes what they do next.</p>
+  <div class="validation-grid">
+    <article class="validation-card"><span>Evidence</span><h3>Is the question answerable?</h3><p>Can the available evidence support the question — or at least show honestly where the boundary of knowledge is?</p></article>
+    <article class="validation-card"><span>Diagnosis</span><h3>Does the workflow point somewhere useful?</h3><p>Does it narrow the plausible explanations and identify a sensible next investigation?</p></article>
+    <article class="validation-card"><span>Interpretation</span><h3>Do people understand the evidence better?</h3><p>Do source context, limitations and known/unknown reduce unsupported conclusions?</p></article>
+    <article class="validation-card"><span>Decision</span><h3>Does anything change?</h3><p>Does the product improve what someone does next enough to justify building further?</p></article>
+  </div>
+  <div class="case-links"><a href="kaalji-validation.html">See validation framework ↗</a></div>
+</section>
+
+<section class="case-section">
+  <p class="section-label">08 · Selected proof</p>
+  <h2>The page tells the argument. The artifacts let you inspect the work behind it.</h2>
+  <div class="proof-grid">
+    <article class="proof-card"><span>Prototype</span><h3>KAALJI v2</h3><p>Question → evidence → comparison → known/unknown → next-investigation workflow.</p><a href="kaalji-prototype.html">Open prototype ↗</a></article>
+    <article class="proof-card"><span>Research + analysis</span><h3>MASTER v2</h3><p>Evidence register, calculations, care-capacity model, compatibility checks, hypotheses, product requirements and validation plan.</p><a href="kaalji-assets/master-workbook.xlsx">Open workbook ↗</a></article>
+    <article class="proof-card"><span>Research method</span><h3>LASI analysis brief</h3><p>Defines the next empirical analysis and guardrails before making stronger claims about care use and paid support.</p><a href="kaalji-assets/lasi-research-brief.pdf">Open brief ↗</a></article>
+    <article class="proof-card"><span>Product validation</span><h3>Validation framework</h3><p>Shows how evidence quality, interpretation, user value and decision impact would be tested.</p><a href="kaalji-validation.html">Open framework ↗</a></article>
+    <article class="proof-card"><span>Responsible AI</span><h3>AI responsibility model</h3><p>Separates AI assistance, reproducible rules and accountable human judgment.</p><a href="kaalji-ai-responsibility.html">Open model ↗</a></article>
+    <article class="proof-card"><span>Ecosystem</span><h3>Where KAALJI fits</h3><p>Positions KAALJI against registration, discovery and care-delivery layers without claiming superiority.</p><a href="kaalji-ecosystem.html">Open ecosystem map ↗</a></article>
+  </div>
+</section>
+
+<section class="case-section reflection">
+  <p class="section-label">09 · What changed my mind</p>
+  <h2>I started by asking how many caregivers India might need. I ended up studying what has to happen for one trained caregiver to become dependable care for one family.</h2>
+  <p>The shift sounds small, but it changed the project. Instead of treating ageing as a forecasting exercise, I began looking at the transitions between need, workforce creation, access and actual care delivery.</p>
+  <p class="pullquote">The numbers were not wrong. The mistake would have been treating them as answers to questions they were never collected to answer.</p>
+  <div class="case-links"><a href="../index.html#work">← Back to selected work</a></div>
+</section>
+</main>
+<footer><span>Dr. Vedanti Shah</span><span>KAALJI · India 2050 — The Future of Care</span></footer>
+</body>
+</html>

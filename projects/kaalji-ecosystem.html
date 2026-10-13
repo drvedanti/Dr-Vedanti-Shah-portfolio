@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAALJI — Where It Fits in the Care Ecosystem</title>
+<style>
+:root{
+  --bg:#f6f3ee;
+  --card:#ffffff;
+  --ink:#202622;
+  --muted:#68716c;
+  --accent:#31584b;
+  --accent-soft:#e7efeb;
+  --warm:#f2ece3;
+  --blue:#eaf0f5;
+  --line:#d9ddd9;
+  --dark:#1f2d27;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+.wrap{max-width:1120px;margin:0 auto;padding:58px 24px 78px}
+.eyebrow{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:800
+}
+h1{
+  font-size:46px;line-height:1.05;letter-spacing:-.035em;
+  margin:10px 0 16px;max-width:900px
+}
+.lead{
+  font-size:19px;line-height:1.65;color:var(--muted);
+  max-width:880px;margin:0 0 30px
+}
+.story{
+  background:var(--accent-soft);border-left:4px solid var(--accent);
+  border-radius:10px;padding:19px 21px;font-size:17px;line-height:1.6;
+  margin:28px 0 36px
+}
+.story strong{color:var(--accent)}
+.journey{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:34px
+}
+.stage{
+  background:#fff;border:1px solid var(--line);border-radius:17px;padding:21px;
+  min-height:225px;box-shadow:0 8px 24px rgba(31,37,34,.04)
+}
+.stage.gov{background:#fbfcfb}
+.stage.private{background:#fbfbfa}
+.stage.kaalji{background:var(--dark);color:#fff;border-color:var(--dark)}
+.kicker{
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:800;margin-bottom:8px
+}
+.kaalji .kicker{color:#b9c9c1}
+.stage h2{font-size:23px;margin:0 0 9px;letter-spacing:-.02em}
+.stage p{font-size:14.5px;line-height:1.55;color:var(--muted);margin:0}
+.kaalji p{color:#e0e8e4}
+.job{
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--line)
+}
+.kaalji .job{border-top-color:rgba(255,255,255,.17)}
+.job b{font-size:12px;display:block;margin-bottom:5px;color:var(--accent)}
+.kaalji .job b{color:#c5ddd2}
+.matrix{
+  background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  margin-top:26px
+}
+.matrix-head{background:var(--dark);color:#fff;padding:21px 24px}
+.matrix-head .small{
+  font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;opacity:.68
+}
+.matrix-head h3{margin:6px 0 0;font-size:24px}
+.row{
+  display:grid;grid-template-columns:190px 1.2fr 1fr 1fr;
+  border-top:1px solid var(--line)
+}
+.cell{padding:16px 18px;font-size:14px;line-height:1.5;border-right:1px solid var(--line)}
+.cell:last-child{border-right:none}
+.row.header .cell{
+  background:#f7f7f4;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:800;color:var(--muted)
+}
+.name{font-weight:800}
+.fit{
+  margin-top:32px;display:grid;grid-template-columns:1.15fr .85fr;gap:18px
+}
+.panel{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:23px
+}
+.panel h3{margin:0 0 12px;font-size:22px}
+.panel p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+.question{
+  margin:15px 0 0;padding:15px;border-radius:12px;background:var(--warm);
+  font-size:16px;line-height:1.5
+}
+.question strong{color:var(--accent)}
+.not{
+  background:#f3e9e6;border-color:#e6d4cf
+}
+.not ul{margin:10px 0 0;padding-left:20px}
+.not li{margin:8px 0;font-size:14.5px;line-height:1.45}
+.sources{
+  margin-top:30px;background:#fff;border:1px solid var(--line);
+  border-radius:18px;padding:22px 24px
+}
+.sources h3{margin:0 0 12px;font-size:19px}
+.sources p{margin:7px 0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.sources a{color:var(--accent);text-decoration:none;border-bottom:1px solid #9eb8ac}
+.recruiter{
+  margin-top:28px;padding:22px 24px;background:var(--accent-soft);border-radius:18px
+}
+.recruiter strong{display:block;margin-bottom:11px}
+.tags{display:flex;gap:9px;flex-wrap:wrap}
+.tag{
+  background:#fff;border:1px solid #cbd6d0;border-radius:999px;
+  padding:7px 11px;font-size:13px
+}
+.footer{margin-top:22px;color:var(--muted);font-size:13px;line-height:1.55}
+@media(max-width:900px){
+  h1{font-size:36px}
+  .lead{font-size:17px}
+  .journey{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:1fr}
+  .cell{border-right:none;border-bottom:1px solid var(--line)}
+  .row .cell:last-child{border-bottom:none}
+  .row.header{display:none}
+  .fit{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .journey{grid-template-columns:1fr}
+}
+</style>
+<style id="portfolio-return-bar-style">.portfolio-return-bar{position:sticky;top:0;z-index:9999;background:#181817;color:#fffdf8;padding:10px 18px;font:12px/1.4 Arial,sans-serif;letter-spacing:.02em}.portfolio-return-bar a{color:#fffdf8;text-decoration:none;border-bottom:1px solid #777}</style></head>
+<body><div class="portfolio-return-bar"><a href="kaalji.html">← KAALJI case study</a> &nbsp;·&nbsp; <a href="../index.html#work">Portfolio</a></div>
+<div class="wrap">
+  <div class="eyebrow">India 2050 · Product Landscape</div>
+  <h1>KAALJI is not another way to book a caregiver</h1>
+  <p class="lead">
+    One of the most important product decisions in this project came from looking at what was already being built.
+    India already has government tools supporting senior citizens and caregiver visibility, while private providers arrange and deliver care at home.
+    That changed the question from <em>“How can people find care?”</em> to <em>“How can decision-makers understand what is happening across the care system?”</em>
+  </p>
+
+  <div class="story">
+    <strong>The product shift:</strong> I originally considered a caregiver-discovery idea.
+    SHATAYU and the existing home-care market made that less interesting.
+    The gap I kept running into during the research was different:
+    the evidence for <strong>need, training, registration, employment, availability, affordability and use</strong>
+    sits in different places and does not automatically tell one coherent story.
+  </div>
+
+  <section class="journey">
+    <article class="stage gov">
+      <div class="kicker">Government support</div>
+      <h2>JEEVAN</h2>
+      <p>
+        A government mobile application for senior citizens, designed around areas such as welfare information,
+        emergency support, healthcare access and social inclusion.
+      </p>
+      <div class="job">
+        <b>Main job</b>
+        <p>Help senior citizens access information and support.</p>
+      </div>
+    </article>
+
+    <article class="stage gov">
+      <div class="kicker">Caregiver visibility</div>
+      <h2>SHATAYU</h2>
+      <p>
+        A government dashboard where trained geriatric caregivers can register, with information on caregiver availability by district and state.
+      </p>
+      <div class="job">
+        <b>Main job</b>
+        <p>Make trained caregivers more visible and discoverable.</p>
+      </div>
+    </article>
+
+    <article class="stage private">
+      <div class="kicker">Private care delivery</div>
+      <h2>Home-care providers</h2>
+      <p>
+        Providers such as Portea and Care24 help families arrange services including caregivers,
+        attendants, nursing and other forms of care at home.
+      </p>
+      <div class="job">
+        <b>Main job</b>
+        <p>Arrange and deliver care to families.</p>
+      </div>
+    </article>
+
+    <article class="stage kaalji">
+      <div class="kicker">Proposed decision support</div>
+      <h2>KAALJI</h2>
+      <p>
+        A proposed evidence and decision-support layer for understanding what the care-system data can tell us,
+        what it cannot tell us, and what should be investigated next.
+      </p>
+      <div class="job">
+        <b>Main job</b>
+        <p>Help planners and programme teams understand the system before choosing an intervention.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="matrix">
+    <div class="matrix-head">
+      <div class="small">Simple comparison</div>
+      <h3>Different tools solve different jobs</h3>
+    </div>
+
+    <div class="row header">
+      <div class="cell">Layer</div>
+      <div class="cell">Question it helps answer</div>
+      <div class="cell">Primary value</div>
+      <div class="cell">What it does not prove</div>
+    </div>
+
+    <div class="row">
+      <div class="cell name">JEEVAN</div>
+      <div class="cell">“What support, information or services are available to a senior citizen?”</div>
+      <div class="cell">Senior-citizen access and support.</div>
+      <div class="cell">It does not by itself explain national care-capacity conversion.</div>
+    </div>
+
+    <div class="row">
+      <div class="cell name">SHATAYU</div>
+      <div class="cell">“Where are registered geriatric caregivers visible?”</div>
+      <div class="cell">Registration and availability visibility.</div>
+      <div class="cell">Registration alone does not prove employment, utilization or quality.</div>
+    </div>
+
+    <div class="row">
+      <div class="cell name">Private providers</div>
+      <div class="cell">“Can I arrange professional care for this person?”</div>
+      <div class="cell">Matching, coordination and service delivery.</div>
+      <div class="cell">One provider's operations do not automatically describe the whole care system.</div>
+    </div>
+
+    <div class="row">
+      <div class="cell name">KAALJI — proposed</div>
+      <div class="cell">“What do we actually know about this care-capacity problem, and what should we investigate next?”</div>
+      <div class="cell">Evidence interpretation and decision support.</div>
+      <div class="cell">It is not a validated shortage detector, marketplace or autonomous policy engine.</div>
+    </div>
+  </section>
+
+  <section class="fit">
+    <div class="panel">
+      <h3>The gap KAALJI is exploring</h3>
+      <p>
+        A training programme can tell us how many people entered training. A registration system can make caregivers visible.
+        A home-care company can deliver services to its customers. But a planner may still need to understand why a region
+        appears to have weak care access — and whether the issue is training, employment, visibility, affordability,
+        utilization, retention, or simply missing evidence.
+      </p>
+
+      <div class="question">
+        <strong>KAALJI's question:</strong><br>
+        “Before choosing the solution, do we understand what kind of problem this actually is?”
+      </div>
+    </div>
+
+    <div class="panel not">
+      <h3>What I am not claiming</h3>
+      <ul>
+        <li>KAALJI has validated product-market fit.</li>
+        <li>KAALJI is superior to the tools or providers shown here.</li>
+        <li>Existing services cover every geography or care need.</li>
+        <li>SHATAYU registration equals active employment or delivered care.</li>
+        <li>This landscape is an exhaustive map of India's elder-care market.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sources">
+    <h3>Sources used for this landscape</h3>
+    <p>
+      <strong>Government of India / PIB:</strong>
+      JEEVAN and SHATAYU launch, 22 May 2026 —
+      <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2264053&lang=1&reg=20" target="_blank" rel="noopener noreferrer">official release</a>.
+    </p>
+    <p>
+      <strong>Government of India / PIB:</strong>
+      SHATAYU caregiver registration clarification, 25 June 2026 —
+      <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2277755&lang=1&reg=3" target="_blank" rel="noopener noreferrer">official release</a>.
+    </p>
+    <p>
+      <strong>Private-provider examples:</strong>
+      <a href="https://care.portea.com/" target="_blank" rel="noopener noreferrer">Portea</a> and
+      <a href="https://care24.co.in/" target="_blank" rel="noopener noreferrer">Care24</a>.
+      Their inclusion is illustrative of home-care service delivery, not an endorsement or complete competitive analysis.
+    </p>
+  </section>
+
+  <section class="recruiter">
+    <strong>What this artifact demonstrates to a recruiter</strong>
+    <div class="tags">
+      <span class="tag">Market / ecosystem research</span>
+      <span class="tag">Product positioning</span>
+      <span class="tag">Build vs. differentiate thinking</span>
+      <span class="tag">Healthcare systems thinking</span>
+      <span class="tag">Competitive awareness</span>
+      <span class="tag">Scope discipline</span>
+    </div>
+  </section>
+
+  <p class="footer">
+    Landscape checked against public programme/provider information in October 2026.
+    KAALJI remains an independently developed portfolio concept and is not affiliated with the government programmes or private providers shown above.
+  </p>
+</div>
+</body>
+</html>
